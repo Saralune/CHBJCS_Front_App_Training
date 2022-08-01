@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Category } from './model/category.model';
-import { Training } from './model/training.model';
 import { User } from './model/user.model';
 import { AuthentificationService } from './services/authentification.service';
 import { TrainingsService } from './services/trainings.service';
@@ -13,32 +11,24 @@ import { TrainingsService } from './services/trainings.service';
 })
 export class AppComponent implements OnInit{
   title = 'trainings-front-app';
+  display = false
+  loggin = true
+  logout = false
+  email = ""
 
-  
- 
-
-  constructor(private authentificationService: AuthentificationService, private trainingsService: TrainingsService, private router:Router){}
+  constructor(private authentificationService: AuthentificationService){}
   ngOnInit(): void {
-    
+    this.showName()
   }
 
-  listTrainings : Training[] | undefined;
-  listCategories: Category[]  | undefined
-  error=null;
-
-
-  
-
-  //onCategories(id:any){
-   // this.getTrainingsByCategory(id);
-   // this.router.navigateByUrl('trainings/'+id);
-  
- // }
-  
-  
-
- 
-
+  showName() {
+    this.email = this.authentificationService.getUser().email
+    if (this.email != "unknown") {
+      this.display = true
+      this.loggin = false
+      this.logout = true
+    }
+  }
   onLogOut (){
     this.authentificationService.logOut();
   }

@@ -12,7 +12,7 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { OrderComponent } from './components/order/order.component';
 import { FormComponent } from './components/authentificate/authentificate.component';
 import { AddTrainingComponent } from './components/add-training/add-training.component';
-import { TrainingByCategoryComponent } from './training-by-category/training-by-category.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { TrainingByCategoryComponent } from './training-by-category/training-by-
     OrderComponent,
     FormComponent,
     AddTrainingComponent,
-    TrainingByCategoryComponent,
+
 
   ],
   imports: [
