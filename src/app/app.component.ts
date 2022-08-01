@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { User } from './model/user.model';
 import { AuthentificationService } from './services/authentification.service';
-import { TrainingsService } from './services/trainings.service';
+import { CartService } from './services/cart.service';
+
 
 @Component({
   selector: 'app-root',
@@ -15,15 +14,18 @@ export class AppComponent implements OnInit{
   loggin = true
   logout = false
   email = ""
+  caddySize = 0
 
-  constructor(private authentificationService: AuthentificationService){}
+  constructor(private authentificationService: AuthentificationService, private cartService: CartService) { }
+  
   ngOnInit(): void {
     this.showName()
+    this.caddySize = this.cartService.caddylenght()
   }
 
   showName() {
     this.email = this.authentificationService.getUser().email
-    if (this.email != "unknown") {
+    if (this.email != "") {
       this.display = true
       this.loggin = false
       this.logout = true
@@ -31,6 +33,9 @@ export class AppComponent implements OnInit{
   }
   onLogOut (){
     this.authentificationService.logOut();
+    this.display = false
+    this.loggin = true
+    this.logout = false
   }
 }
 

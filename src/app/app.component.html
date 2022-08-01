@@ -1,26 +1,32 @@
-<div class="container">
-  <nav class="navbar navbar-expand-sm bg-light navbar-light">
 
-    <a class="navbar-brand" href="#">TRAININGS</a>
+  <nav class="navbar navbar-expand-sm" id="header">
+
+    <a class="navbar-brand" href="#"><img class="logo" src="../assets/img/logo_g-c.png" alt="">TRAININGS</a>
 
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="#" routerLink="/trainings">Liste des Formations</a>
       </li>
       <li class="nav-item">
-        <a  class="nav-link" href="#" routerLink="/cart">Contenu du Panier</a>
+        <a class="nav-link" href="#" routerLink="/cart">Contenu du Panier</a>
       </li>
       <li class="nav-item">
         <a *ngIf="loggin" class="nav-link" href="#" routerLink="/form">Login</a>
-         <a *ngIf="logout" class="nav-link" href="#" (click)="onLogOut()">Logout</a>
+        <a *ngIf="logout" class="nav-link" href="#" (click)="onLogOut()">Logout</a>
       </li>
-     
+
     </ul>
     <div *ngIf="display" class="col-md-4 welcome">
       Bienvenue {{email}} <img src="../assets/img/robot.png">
     </div>
+    <div class="cart d-flex align-items-center" id="Caddy">
+      <a routerLink="/caddy">
+        <img src="../assets/img/cart.png" class="img_cart" alt="Panier" />
+      </a>
+      <h3 id="qty-cart">{{caddySize}}</h3>
+    </div>
   </nav>
-</div>
+
 
 
 <router-outlet> </router-outlet>
