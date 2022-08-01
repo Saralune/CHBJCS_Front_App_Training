@@ -1,0 +1,62 @@
+{
+  "trainings": [
+    {
+      "id": 1,
+      "name": "java",
+      "description": "Formation Java SE 8 sur 5 jours",
+      "price": 1500,
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "name": "DoNet",
+      "description": "Formation DoNet 3 jours",
+      "price": 1000,
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "name": "Python",
+      "description": "Formation Python/Django 5 jours",
+      "price": 1300,
+      "quantity": 1
+    },
+    {
+      "id": 4,
+      "name": "Php",
+      "description": "Initiation au Dev/web avec Php 4 jours",
+      "price": 1300,
+      "quantity": 1
+    },
+    {
+      "id": 5,
+      "name": "NodeJs",
+      "description": "Prise en main de NodeJs/Express 2 jours",
+      "price": 1400,
+      "quantity": 1
+    },
+    {
+      "id": 7,
+      "name": "Java avancé",
+      "description": "Formation Java avancé/BDD 3 jours",
+      "price": 1200,
+      "quantity": 1
+    },
+    {
+      "id": 10,
+      "name": "Power B1",
+      "description": "Business Intelligence 10 jours",
+      "price": 3000,
+      "quantity": 1
+    }
+  ],
+
+  "users":[
+    {"id":1,
+      "name":"durand",
+      "firstname":"julie",
+      "email":"j@aol.com",
+      "pwd":"0000"
+    }
+  ]
+}
