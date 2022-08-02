@@ -11,7 +11,6 @@ import { OrderItem } from '../model/orderItem.model';
   providedIn: 'root'
 })
 export class TrainingsService {
-
   constructor(private http: HttpClient) { }
 
   public getTrainings(){
@@ -26,21 +25,24 @@ export class TrainingsService {
     return this.http.get<Training[]>(environment.host+"/categories/"+ catId + "/trainings");
   }
 
- // public postTraining(training:any){
+  // public postTraining(training:any){
   //  return this.http.post<Training>(environment.host+"/trainings", training);
   //}
 
-  public getNewTraining(){
-    return this.http.post<Training>(environment.host+"/trainings",new Training(0,"","",100,1));
+  // public getNewTraining(){
+  //   return this.http.post<Training>(environment.host+"/trainings",new Training(0,"","",100,1, ""));
+  // }
+
+  public saveNewTraining(training: Training){
+    return this.http.post<Training>(environment.host+"/trainings", training);
   }
 
   public postOrder(order:any){
     console.log(order);
     return this.http.post<any>(environment.host+"/orders", order);
+  }
 
-}
-
-public postOrderItem(orderItem:any){
-    return this.http.post<OrderItem>(environment.host+"/orderItems", orderItem);
-}
+  public postOrderItem(orderItem:any){
+      return this.http.post<OrderItem>(environment.host+"/orderItems", orderItem);
+  }
 }

@@ -62,8 +62,5 @@ this.trainingsService.getTrainingsByCategoryId(catId).subscribe({
 
 }
 
-onConnectedAsAdmin():boolean{
-  if(this.authentificationService.connectedAsAdmin()) return true; 
-  else return false;
-}
+
 }

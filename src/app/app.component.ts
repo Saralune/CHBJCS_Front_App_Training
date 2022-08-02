@@ -26,7 +26,10 @@ export class AppComponent implements OnInit{
   listCategories: Category[]  | undefined
   error=null;
 
-
+  onConnectedAsAdmin():boolean{
+    if(this.authentificationService.connectedAsAdmin()) return true; 
+    else return false;
+  }
   
 
   //onCategories(id:any){
