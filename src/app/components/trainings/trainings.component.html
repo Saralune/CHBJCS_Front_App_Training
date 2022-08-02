@@ -1,36 +1,47 @@
 <div class="container">
 
-    <div *ngFor="let category of listCategories" class="d-flex flex-wrap">
-        <button class="btn btn-success catList" (click)="getTrainingsByCategory(category.id)">{{category.name}} </button>
+    <div *ngIf="listCategories else loading" class="md-6 d-flex flex-wrap">
+        <div *ngFor="let category of listCategories">
+            <button class="catList" (click)="getTrainingsByCategory(category.id)">{{category.name}}
+            </button>
+        </div>
     </div>
 
-    <ng-container *ngIf="listTrainings">
-
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>NOM</th>
-                    <th>DESCRIPTION</th>
-                    <th>PRIX</th>
-                    <th>QUANTITE</th>
-                    <th>PANIER</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let training of listTrainings">
-                    <td>{{training.id}}</td>
-                    <td>{{training.name}}</td>
-                    <td>{{training.description}}</td>
-                    <td>{{training.price}}</td>
-                    <td> <input type="number" name="quantity" style="width: 60px" [(ngModel)]="training.quantity"
-                            min=""> </td>
-                    <td> <a class="btn btn-primary" (click)="onAddToCart(training)"> Ajouter </a></td>
-                </tr>
-
-            </tbody>
-        </table>
+    <ng-container *ngIf="listTrainings else loading">
+        <div class="trainingCard">
+            <div *ngFor="let training of listTrainings">
+                <div class="container-fluid ">
+                    <div class="item product-content">
+                        <!-- Restaurant Item -->
+                        <div>
+                            <!-- Item's image -->
+                            <div>
+                                <img class="img-responsive product-image"
+                                    src="http://localhost:8080/api/download/{{training.imgUrl}}" alt="">
+                            </div>
+                            <!-- Item details -->
+                            <div class="item-dtls">
+                                <!-- product title -->
+                                <h4>{{training.name}}</h4>
+                                <p>{{training.description}}</p>
+                                <!-- price -->
+                                <span class="price">${{training.price}}</span>
+                            </div>
+                            <!-- add to cart btn -->
+                            <div class="ecom">
+                                <input type="number" name="quantity" [(ngModel)]="training.quantity" min="">
+                                <a class="cart-button" (click)="onAddToCart(training)">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <br>
         <button class="btn btn-success" *ngIf="onConnectedAsAdmin()">Ajouter une formation</button>
     </ng-container>
+
+    <ng-template #loading>
+        <div>Aucune donées à afficher !!!</div>
+    </ng-template>
 </div>

@@ -8,9 +8,6 @@
         <a class="nav-link" href="#" routerLink="/trainings">Liste des Formations</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="/cart">Contenu du Panier</a>
-      </li>
-      <li class="nav-item">
         <a *ngIf="loggin" class="nav-link" href="#" routerLink="/form">Login</a>
         <a *ngIf="logout" class="nav-link" href="#" (click)="onLogOut()">Logout</a>
       </li>
@@ -20,7 +17,7 @@
       Bienvenue {{email}} <img src="../assets/img/robot.png">
     </div>
     <div class="cart d-flex align-items-center" id="Caddy">
-      <a routerLink="/caddy">
+      <a routerLink="/cart">
         <img src="../assets/img/cart.png" class="img_cart" alt="Panier" />
       </a>
       <h3 id="qty-cart">{{caddySize}}</h3>

@@ -27,15 +27,10 @@
     width: 64px;
 }
 .welcome {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bolder;
     font-style: italic;
     margin-left: 100px;
 }
-/* button categorie list */
-.catList{
- margin: 5px;
-}
-.listAdmin {
-    justify-content: space-around;
-}
+
+

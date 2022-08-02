@@ -31,7 +31,7 @@ export class TrainingsService {
   //}
 
   public getNewTraining(){
-    return this.http.post<Training>(environment.host+"/trainings",new Training(0,"","",100,1));
+    return this.http.post<Training>(environment.host+"/trainings",new Training(0,"","",100,1,"unknown.png"));
   }
 
   public postOrder(order:any){

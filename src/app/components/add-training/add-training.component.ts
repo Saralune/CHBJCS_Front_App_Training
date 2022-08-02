@@ -12,7 +12,7 @@ import { TrainingsService } from 'src/app/services/trainings.service';
 export class AddTrainingComponent implements OnInit {
   myForm:FormGroup;
   constructor(public trainingsService: TrainingsService, private router : Router) {  
-    let newTraining=new Training(1,"","",100,1);
+    let newTraining=new Training(1,"","",100,1,"unknown.png");
    // let newTraining=this.trainingsService.getNewTraining();
     this.myForm= new FormGroup({
       name: new FormControl(newTraining.name),
