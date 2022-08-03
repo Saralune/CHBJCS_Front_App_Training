@@ -115,3 +115,10 @@
     top: 0px;
     right: 5px;
   }
+
+  .modal-header button {
+    background-color: red;
+    border-radius: 50%;
+    width: 30px;
+    border: red
+  }

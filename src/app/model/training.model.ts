@@ -6,12 +6,12 @@ export class Training {
     description : string;
     price : number;
     quantity : number;
-    imgUrl : String;
+    imgUrl : string;
     category: Category;
   // static id: number;
   // static quantity: number;
 
-    constructor(id:number,name:string,description:string,price:number, quantity:number, imgUrl: String, category: Category) {
+    constructor(id:number,name:string,description:string,price:number, quantity:number, imgUrl: string, category: Category) {
         this.id = id;
         this.name = name;
         this.description = description;
