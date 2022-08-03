@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Category } from 'src/app/model/category.model';
-import { Training } from 'src/app/model/training.model';
 import { TrainingsService } from 'src/app/services/trainings.service';
 
 @Component({
@@ -11,45 +10,77 @@ import { TrainingsService } from 'src/app/services/trainings.service';
   styleUrls: ['./add-training.component.css']
 })
 export class AddTrainingComponent implements OnInit {
-  myForm:FormGroup;
-  newTraining : Training | undefined;
-  listCategories: Category[]  | undefined;
-  error=null;
+  myForm: FormGroup;
+  //newTraining: Training | undefined;
+  listCategories: Category[] | undefined;
+  error = null;
+  file!: File;
+  imgUrl = ""
 
-  constructor(public trainingsService: TrainingsService, private router : Router) {  
-    let newTraining=new Training(1,"","",100,1, "unknown.png", new Category(0, ""));
-   // let newTraining=this.trainingsService.getNewTraining();
-    this.myForm= new FormGroup({
-      name: new FormControl(newTraining.name),
-      description: new FormControl(newTraining.description),
-      price: new FormControl(newTraining.price),
-      quantity: new FormControl(newTraining.quantity),
-      imgUrl: new FormControl(newTraining.imgUrl)
+  newTraining = {
+    id: 0,
+    name: "",
+    description: "",
+    price: 100,
+    quantity: 1,
+    imgUrl: "unknown.png",
+    category: {} as Category
+  };
+
+  constructor(public trainingsService: TrainingsService, private router: Router) {
+    this.myForm = new FormGroup({
+      name: new FormControl(this.newTraining.name),
+      description: new FormControl(this.newTraining.description),
+      price: new FormControl(this.newTraining.price),
+      imgUrl: new FormControl(this.newTraining.imgUrl),
+      category: new FormControl(this.newTraining.category)
     });
-    this.getCategories();
-    console.log(typeof(this.myForm.value.category));
+
   }
 
   ngOnInit(): void {
+    this.getCategories();
   }
 
-  onAddTraining(form:FormGroup){
-    console.log("type : " + typeof(form.value.category));
-    this.newTraining = new Training(0, form.value.name, form.value.description, form.value.price, form.value.quantity, form.value.imgUrl, form.value.category);
+  onAddTraining(form: FormGroup) {
+  
+  
+
+    console.log(this.newTraining)
+
+    if (confirm("Valider l'ajout de la formation ?")) {
+
+      this.newTraining.category = form.value.category
+      this.newTraining.name = form.value.name
+      this.newTraining.description = form.value.description
+      this.newTraining.price = form.value.price
+      this.newTraining.imgUrl = this.imgUrl
+
+    this.trainingsService.uploadImage(this.file).subscribe({
+       next:(data)=>console.log(data)
+    })
     this.trainingsService.saveNewTraining(this.newTraining).subscribe({
-      next: (data) => this.newTraining= data,
-      error: (err) => this.error=err.message,
-      complete: () => this.error =null
-     })
-     confirm("Valider l'ajout de la formation ?")
-     this.router.navigateByUrl('/');
+      next: (data) => console.log(data) 
+    })
+
+      this.router.navigateByUrl('/')
+    }
   }
 
-  getCategories(){
+  getCategories() {
     this.trainingsService.getCategories().subscribe({
-      next: (data) => this.listCategories= data,
-      error: (err) => this.error=err.message,
-      complete: () => this.error =null 
+      next: (data) => this.listCategories = data,
+      error: (err) => this.error = err.message,
+      complete: () => this.error = null
     })
   }
+  /// img 
+  processFile(event: any) {
+    // const file: File = event.target.files[0];
+    this.file = event.target.files[0];
+    // console.log(this.file.name)
+    this.imgUrl = this.file.name
+
+  }
+  ////////////////
 }

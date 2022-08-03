@@ -42,7 +42,10 @@ export class TrainingsService {
     return this.http.post<any>(environment.host+"/orders", order);
   }
 
-  public postOrderItem(orderItem:any){
-      return this.http.post<OrderItem>(environment.host+"/orderItems", orderItem);
+  // upload img
+  public uploadImage(file: File): Observable<Response> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+    return this.http.post<any>(environment.host + "/uploadfile", formData)
   }
 }
