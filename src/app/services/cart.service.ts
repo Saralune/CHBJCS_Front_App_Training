@@ -47,7 +47,10 @@ export class CartService {
   getCart() {
     return Array.from(this.cart.values());
   }
-
+  // caddy lenght (header nav)
+  caddylenght() {
+    return this.cart.size
+  }
   getAmount() : number {
     let amount : number = 0;
     this.cart.forEach(training => {

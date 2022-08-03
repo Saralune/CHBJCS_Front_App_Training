@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Category } from './model/category.model';
 import { Training } from './model/training.model';
-import { User } from './model/user.model';
 import { AuthentificationService } from './services/authentification.service';
-import { TrainingsService } from './services/trainings.service';
+import { CartService } from './services/cart.service';
+
 
 @Component({
   selector: 'app-root',
@@ -13,37 +12,41 @@ import { TrainingsService } from './services/trainings.service';
 })
 export class AppComponent implements OnInit{
   title = 'trainings-front-app';
-
+  display = false
+  loggin = true
+  logout = false
+  email = ""
+  caddySize = 0
   
- 
-
-  constructor(private authentificationService: AuthentificationService, private trainingsService: TrainingsService, private router:Router){}
-  ngOnInit(): void {
-    
-  }
-
   listTrainings : Training[] | undefined;
   listCategories: Category[]  | undefined
   error=null;
+
+  constructor(private authentificationService: AuthentificationService, private cartService: CartService) { }
+  
+  ngOnInit(): void {
+    this.showName()
+    this.caddySize = this.cartService.caddylenght()
+  }
 
   onConnectedAsAdmin():boolean{
     if(this.authentificationService.connectedAsAdmin()) return true; 
     else return false;
   }
-  
 
-  //onCategories(id:any){
-   // this.getTrainingsByCategory(id);
-   // this.router.navigateByUrl('trainings/'+id);
-  
- // }
-  
-  
-
- 
-
+  showName() {
+    this.email = this.authentificationService.getUser().email
+    if (this.email != "") {
+      this.display = true
+      this.loggin = false
+      this.logout = true
+    }
+  }
   onLogOut (){
     this.authentificationService.logOut();
+    this.display = false
+    this.loggin = true
+    this.logout = false
   }
 }
 

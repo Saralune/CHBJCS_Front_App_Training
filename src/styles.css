@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+.img_cart {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
+
+#Caddy {
+    position: absolute;
+    right: 50px;
+}
+
+#qty-cart {
+    color: lightseagreen;
+}
+
+#header {
+    background-color: lawngreen;
+    margin-bottom: 10px;
+    position: sticky !important;
+    top: 0px;
+    z-index: 10;
+}
+.logo {
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 64px;
+}
+.welcome {
+    font-size: 20px;
+    font-weight: bolder;
+    font-style: italic;
+    margin-left: 100px;
+}
+
+

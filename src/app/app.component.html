@@ -1,66 +1,32 @@
-<div class="container">
-<nav class="navbar navbar-expand-sm bg-light navbar-light">
 
-  <a class="navbar-brand" href="#">TRAININGS</a>
+  <nav class="navbar navbar-expand-sm" id="header">
 
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="#" routerLink="/trainings">Liste des Formations</a>
-    </li>   
-   <!-- <li class="nav-item">
-      <a class="nav-link" href="#" routerLink="/trainings" (click)="getTrainingsByCategory()">Formations informatiques</a>
-    </li> 
-    <li class="nav-item">
-      <a class="nav-link" href="#" routerLink="/trainings" (click)="getTrainingsByCategory()">Autres formations</a>
-    </li> -->
-    <li class="nav-item">
-      <a class="nav-link" href="#" routerLink="/cart">Contenu du Panier</a>
-    </li> 
-    <li class="nav-item" *ngIf="onConnectedAsAdmin()">
-      <a class="nav-link" href="#" routerLink="/add-training">Ajouter une formation</a>
-    </li> 
-    <li class="nav-item">
-      <a class="nav-link" href="#" routerLink="/form" >Login</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#" (click)="onLogOut()">Logout</a>
-    </li>
-  </ul>
-    </nav>
+    <a class="navbar-brand" href="#"><img class="logo" src="../assets/img/logo_g-c.png" alt="">TRAININGS</a>
 
-    
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/trainings">Liste des Formations</a>
+      </li>
+      <li class="nav-item" *ngIf="onConnectedAsAdmin()">
+        <a class="nav-link" href="#" routerLink="/add-training">Ajouter une formation</a>
+      </li> 
+      <li class="nav-item">
+        <a *ngIf="loggin" class="nav-link" href="#" routerLink="/form">Login</a>
+        <a *ngIf="logout" class="nav-link" href="#" (click)="onLogOut()">Logout</a>
+      </li>
 
-    <div class="container">
+    </ul>
+    <div *ngIf="display" class="col-md-4 welcome">
+      Bienvenue {{email}} <img src="../assets/img/robot.png">
+    </div>
+    <div class="cart d-flex align-items-center" id="Caddy">
+      <a routerLink="/cart">
+        <img src="../assets/img/cart.png" class="img_cart" alt="Panier" />
+      </a>
+      <h3 id="qty-cart">{{caddySize}}</h3>
+    </div>
+  </nav>
 
-    
-    <!-- <ng-container *ngIf="listTrainings">
-  
-         
-  
-          <table class="table table-striped" *ngIf="listTrainings">
-              <thead>
-                  <tr>
-                      <th>ID</th> <th>NOM</th> <th>DESCRIPTION</th> <th>PRIX</th> <th>QUANTITE</th> <th>PANIER</th>
-                  </tr>         
-              </thead>
-              <tbody>
-                  <tr *ngFor="let training of listTrainings">
-                      <td>{{training.id}}</td>
-                      <td>{{training.name}}</td>    
-                      <td>{{training.description}}</td>
-                      <td>{{training.price}}</td>
-                      <td> <input type="number" name="quantity" style="width: 60px" [(ngModel)]="training.quantity" min=""> </td>
-                      <td> <a class="btn btn-primary"> Ajouter </a></td>
-                  </tr>
-               
-              </tbody>
-          </table>  
-          <br>
-          <button class="btn btn-success" >Ajouter une formation</button>  
-      </ng-container> --> 
-  </div>
- 
-</div>
 
 
 <router-outlet> </router-outlet>
