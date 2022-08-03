@@ -25,13 +25,9 @@ export class TrainingsService {
     return this.http.get<Training[]>(environment.host+"/categories/"+ catId + "/trainings");
   }
 
-  // public postTraining(training:any){
-  //  return this.http.post<Training>(environment.host+"/trainings", training);
-  //}
-
-  // public getNewTraining(){
-  //   return this.http.post<Training>(environment.host+"/trainings",new Training(0,"","",100,1, ""));
-  // }
+  public deleteTraining (training: Training){
+    return this.http.delete<Training>(environment.host+"/trainings/"+training.id);
+  }
 
   public saveNewTraining(training: Training){
     return this.http.post<Training>(environment.host+"/trainings", training);
@@ -48,4 +44,6 @@ export class TrainingsService {
     formData.append('file', file);
     return this.http.post<any>(environment.host + "/uploadfile", formData)
   }
+
+
 }

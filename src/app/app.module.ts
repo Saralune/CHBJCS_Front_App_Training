@@ -12,6 +12,7 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { OrderComponent } from './components/order/order.component';
 import { FormComponent } from './components/authentificate/authentificate.component';
 import { AddTrainingComponent } from './components/add-training/add-training.component';
+import { UpdateTrainingComponent } from './update-training/update-training.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { AddTrainingComponent } from './components/add-training/add-training.com
     OrderComponent,
     FormComponent,
     AddTrainingComponent,
+    UpdateTrainingComponent,
 
 
   ],

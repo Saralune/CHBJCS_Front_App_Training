@@ -1,0 +1,43 @@
+<div class="container">
+
+
+    <ng-container *ngIf="listTrainings else loading">
+        <div class="trainingCard">
+            <div *ngFor="let training of listTrainings">
+                <div class="container-fluid ">
+                    <div class="item product-content">
+                        <!-- Restaurant Item -->
+                        <div>
+                            <!-- Item's image -->
+                            <div>
+                                <a class="x-del" (click)="delItem(training)"><img src="/assets/img/x-button.png"
+                                    alt="delete"></a>
+                                <img class="img-responsive product-image"
+                                    src="http://localhost:8080/api/download/{{training.imgUrl}}" alt="">
+                            </div>
+                            <!-- Item details -->
+                            <div class="item-dtls">
+                                <!-- product title -->
+                                <h4>{{training.name}}</h4>
+                                <p>{{training.description}}</p>
+                                <!-- price -->
+                                <span class="price">${{training.price}}</span>
+                                <div class="edit-img">
+                                    <img  src="/assets/img/edit.png">
+                                </div>
+                            </div>
+                           
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!-- <button class="btn btn-success" *ngIf="onConnectedAsAdmin()"><a >Ajouter une formation</a></button>   -->
+    </ng-container>
+
+    <ng-template #loading>
+        <div>Aucune donées à afficher !!!</div>
+    </ng-template>
+</div>
