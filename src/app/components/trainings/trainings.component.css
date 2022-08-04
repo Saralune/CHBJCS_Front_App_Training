@@ -22,6 +22,11 @@
     overflow: hidden;
 }
 
+.product-content:hover {
+    border: 1px solid rgb(251, 149, 169);
+    box-shadow: 10px 10px 5px 0px rgb(251, 149, 169);
+}
+
 .product-image {
     background-color: #fff;
     width: 130px;
@@ -55,13 +60,13 @@
     border-radius: 3px;
 }
 
- .item-dtls h4 {
+.item-dtls h4 {
     margin-top: 13px;
     margin-bottom: 10px;
     text-transform: uppercase;
 }
 
- .price {
+.price {
     display: block;
     margin-bottom: 13px;
     font-size: 25px;
@@ -81,7 +86,8 @@
     -o-transition: all 0.35s ease-in;
     transition: all 0.35s ease-in;
 }
-.ecom input{
+
+.ecom input {
     width: 80px;
     margin-right: 10px;
 }
@@ -99,7 +105,8 @@
     border: none;
 
 }
-.catList:hover{
+
+.catList:hover {
     background-color: lightseagreen;
     box-shadow: 5px 5px 5px 0px rgb(251, 149, 169);
 }
