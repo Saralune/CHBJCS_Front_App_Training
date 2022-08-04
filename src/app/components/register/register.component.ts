@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
         userName: "",
         password: "",
         active:true,
+        role:[],
     }
     constructor(public cartService: CartService,
         private router: Router,
@@ -34,7 +35,7 @@ export class RegisterComponent implements OnInit {
     }
 
     onSaveUser(form: FormGroup) {
-        //console.log(form.value)
+        console.log(form.value)
         if (form.valid) {
             this.display = true
 
