@@ -54,6 +54,11 @@ export class AuthentificationService {
     return false;
 
     }
+
+    getloginError(): boolean{
+      //TODO
+      return true;
+    }
     
   }
 

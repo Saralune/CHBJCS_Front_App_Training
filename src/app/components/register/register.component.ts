@@ -27,7 +27,6 @@ export class RegisterComponent implements OnInit {
             userName: new FormControl(this.data.userName),
             password: new FormControl(this.data.password),   
         })
-
     }
 
     ngOnInit(): void {
@@ -50,9 +49,6 @@ export class RegisterComponent implements OnInit {
                 this.display = false
                 this.router.navigateByUrl('login')
             }, 1500)
-
         }
-
-
     }
 }

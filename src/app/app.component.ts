@@ -35,7 +35,7 @@ export class AppComponent implements OnInit{
   }
 
   showName() {
-    this.email = this.authentificationService.getUser().email
+    this.email = this.authentificationService.getUser().username
     if (this.email != "") {
       this.display = true
       this.loggin = false

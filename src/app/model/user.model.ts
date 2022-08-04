@@ -1,12 +1,12 @@
 export class User {
-    email:string;
-    pwd:string;
+    username:string;
+    password:string;
     roles:string[];
 
-    constructor(email:string, pwd:string, roles:string[]) {
+    constructor(username:string, password:string, roles:string[]) {
 
-        this.email=email;
-        this.pwd=pwd;
+        this.username=username;
+        this.password=password;
         this.roles= roles;
     }
 };

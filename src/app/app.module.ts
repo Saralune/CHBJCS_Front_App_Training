@@ -14,7 +14,7 @@ import { FormComponent } from './components/authentificate/authentificate.compon
 import { AddTrainingComponent } from './components/add-training/add-training.component';
 import { UpdateTrainingComponent } from './update-training/update-training.component';
 import { RegisterComponent } from './components/register/register.component';
-
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +27,8 @@ import { RegisterComponent } from './components/register/register.component';
     FormComponent,
     AddTrainingComponent,
     UpdateTrainingComponent,
-RegisterComponent
-
+    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

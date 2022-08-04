@@ -11,13 +11,13 @@ import { AuthentificationService } from 'src/app/services/authentification.servi
 })
 export class FormComponent implements OnInit {
   myForm:FormGroup;
-listUsers:User[]|undefined;
+  listUsers:User[]|undefined;
 
   constructor(private authentificationService: AuthentificationService, private router:Router) { 
     let user=this.authentificationService.getUser();
     this.myForm= new FormGroup({
-      email: new FormControl(user.email),
-      pwd: new FormControl(user.pwd)
+      email: new FormControl(user.username),
+      pwd: new FormControl(user.password)
     })
   }
 
@@ -25,7 +25,7 @@ listUsers:User[]|undefined;
   }
 
   onConnect(myForm:FormGroup){
-    this.authentificationService.connect(myForm.value.email,myForm.value.pwd);
+    this.authentificationService.connect(myForm.value.userName, myForm.value.password);
     //this.authentificationService.saveUser(new User(myForm.value.name,myForm.value.firstName, myForm.value.email, myForm.value.pwd));
     this.router.navigateByUrl('cart');
   }

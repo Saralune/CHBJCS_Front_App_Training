@@ -26,14 +26,18 @@ export class TrainingsService {
   }
 
   public deleteTraining (training: Training){
+            //get access token from localstorage Headers:{auth == bearer}
+
     return this.http.delete<Training>(environment.host+"/trainings/"+training.id);
   }
 
   public saveNewTraining(training: Training){
+    //token
     return this.http.post<Training>(environment.host+"/trainings", training);
   }
 
   public postOrder(order:any){
+    //accestoken : string -> bearer
     console.log(order);
     return this.http.post<any>(environment.host+"/orders", order);
   }

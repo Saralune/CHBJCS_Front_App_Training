@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  host:"http://localhost:8080/api"
+  host:"http://localhost:8080/api",
+  hostAuth:"http://localhost:8080/login",
+  hostCust:"http://localhost:8080/api/customer"
 };
 
 /*
