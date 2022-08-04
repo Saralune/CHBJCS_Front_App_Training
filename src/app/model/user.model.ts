@@ -1,9 +1,11 @@
+import { Role } from "./role.model";
+
 export class User {
     email:string;
     pwd:string;
-    roles:string[];
+    roles: string[];
 
-    constructor(email:string, pwd:string, roles:string[]) {
+     constructor(email:string, pwd:string, roles:string[]) {
 
         this.email=email;
         this.pwd=pwd;
