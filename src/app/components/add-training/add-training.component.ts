@@ -11,7 +11,6 @@ import { TrainingsService } from 'src/app/services/trainings.service';
 })
 export class AddTrainingComponent implements OnInit {
   myForm: FormGroup;
-  //newTraining: Training | undefined;
   listCategories: Category[] | undefined;
   error = null;
   file!: File;
@@ -43,9 +42,6 @@ export class AddTrainingComponent implements OnInit {
   }
 
   onAddTraining(form: FormGroup) {
-  
-  
-
     console.log(this.newTraining)
 
     if (confirm("Valider l'ajout de la formation ?")) {

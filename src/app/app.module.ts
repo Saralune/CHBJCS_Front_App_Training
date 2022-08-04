@@ -13,6 +13,7 @@ import { OrderComponent } from './components/order/order.component';
 import { FormComponent } from './components/authentificate/authentificate.component';
 import { AddTrainingComponent } from './components/add-training/add-training.component';
 import { UpdateTrainingComponent } from './update-training/update-training.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { UpdateTrainingComponent } from './update-training/update-training.compo
     FormComponent,
     AddTrainingComponent,
     UpdateTrainingComponent,
-
+RegisterComponent
 
   ],
   imports: [

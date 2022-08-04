@@ -11,7 +11,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 
 export class RegisterComponent implements OnInit {
-    ngForm: FormGroup
+   ngForm:FormGroup
     display = false
     error=""
     data = {
@@ -22,7 +22,6 @@ export class RegisterComponent implements OnInit {
     constructor(public cartService: CartService,
         private router: Router,
         private trainingService: TrainingsService) {
-
 
         this.ngForm = new FormGroup({
             userName: new FormControl(this.data.userName),
