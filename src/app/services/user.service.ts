@@ -24,20 +24,20 @@ export class UserService {
     return this.http.post<Customer>(environment.hostCust + '/save', customer);
   }
 
-  public authenticate(user: User):Observable<any> {
-    const payload = new HttpParams()
-      .set('username', user.username)
-      .set('password', user.password);
-    // let userStr = user.username;
-    // let passwordStr = user.password;
-    console.log("payload : " + payload);    
-    console.log(user);
-    //console.log("auth " + this.http.post(environment.hostAuth, payload));
+  // public authenticate(user: User):Observable<any> {
+  //   const payload = new HttpParams()
+  //     .set('username', user.username)
+  //     .set('password', user.password);
+  //   // let userStr = user.username;
+  //   // let passwordStr = user.password;
+  //   console.log("payload : " + payload);    
+  //   console.log(user);
+  //   //console.log("auth " + this.http.post(environment.hostAuth, payload));
     
-   return this.http.post<User>(environment.hostAuth, {payload});
+  //  return this.http.post<User>(environment.hostAuth, {payload});
 
     
-  }
+  // }
 
 
 }

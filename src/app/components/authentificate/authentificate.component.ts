@@ -16,8 +16,8 @@ export class FormComponent implements OnInit {
   constructor(private authentificationService: AuthentificationService, private router:Router) { 
     let user=this.authentificationService.getUser();
     this.myForm= new FormGroup({
-      email: new FormControl(user.username),
-      pwd: new FormControl(user.password)
+      email: new FormControl(user.email),
+      pwd: new FormControl(user.pwd)
     })
   }
 
@@ -25,8 +25,8 @@ export class FormComponent implements OnInit {
   }
 
   onConnect(myForm:FormGroup){
-    this.authentificationService.connect(myForm.value.userName, myForm.value.password);
-    //this.authentificationService.saveUser(new User(myForm.value.name,myForm.value.firstName, myForm.value.email, myForm.value.pwd));
+    this.authentificationService.connect(myForm.value.email, myForm.value.pwd);
+   // this.authentificationService.saveUser(new User( myForm.value.email, myForm.value.pwd));
     this.router.navigateByUrl('cart');
   }
 }

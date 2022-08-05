@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,DoCheck } from '@angular/core';
 import { Category } from './model/category.model';
 import { Training } from './model/training.model';
 import { AuthentificationService } from './services/authentification.service';
@@ -10,7 +10,7 @@ import { CartService } from './services/cart.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit,DoCheck{
   title = 'trainings-front-app';
   display = false
   loggin = true
@@ -23,6 +23,9 @@ export class AppComponent implements OnInit{
   error=null;
 
   constructor(private authentificationService: AuthentificationService, private cartService: CartService) { }
+  ngDoCheck(): void {
+    this.caddySize = this.cartService.caddylenght()
+  }
   
   ngOnInit(): void {
     this.showName()
@@ -35,7 +38,7 @@ export class AppComponent implements OnInit{
   }
 
   showName() {
-    this.email = this.authentificationService.getUser().username
+    this.email = this.authentificationService.getUser().email
     if (this.email != "") {
       this.display = true
       this.loggin = false

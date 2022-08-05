@@ -47,30 +47,30 @@ export class LoginComponent implements OnInit {
   //   //this.authenticationService.checkIfUserExists(authForm);
   // }
 
-  authenticate(authForm: FormGroup) {
-    this.userServcie.authenticate(authForm.value).subscribe((data) => {
-      console.log(data);
-      localStorage.setItem('token', JSON.stringify(data));
+  // authenticate(authForm: FormGroup) {
+  //   this.userServcie.authenticate(authForm.value).subscribe((data) => {
+  //     console.log(data);
+  //     localStorage.setItem('token', JSON.stringify(data));
 
-      //TESTS
-      for (let i = 0; i < localStorage.length; i++) {
-        if (!Number(localStorage.key(i))) {
-          let jwtToken = JSON.parse(
-            String(localStorage.getItem(String(localStorage.key(i))))
-          );
-          console.log(jwtToken);
-          let accessTokenStr = jwtToken["access-token"]
-          let refreshTokenStr = jwtToken["refresh-token"]
-          console.log('accessToken : ' + accessTokenStr);
-          console.log('refreshToken : ' + refreshTokenStr);
-        }
-      }
-      //END TEST
+  //     //TESTS
+  //     for (let i = 0; i < localStorage.length; i++) {
+  //       if (!Number(localStorage.key(i))) {
+  //         let jwtToken = JSON.parse(
+  //           String(localStorage.getItem(String(localStorage.key(i))))
+  //         );
+  //         console.log(jwtToken);
+  //         let accessTokenStr = jwtToken["access-token"]
+  //         let refreshTokenStr = jwtToken["refresh-token"]
+  //         console.log('accessToken : ' + accessTokenStr);
+  //         console.log('refreshToken : ' + refreshTokenStr);
+  //       }
+  //     }
+  //     //END TEST
 
-    });
+  //   });
 
-    this.router.navigateByUrl('/');
-  }
+  //   this.router.navigateByUrl('/');
+  // }
 
-  //NgRx end
+
 }

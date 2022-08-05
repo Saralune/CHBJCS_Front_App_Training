@@ -1,14 +1,14 @@
 import { Role } from "./role.model";
 
 export class User {
-    username:string;
-    password:string;
+    email:string;
+    pwd:string;
     roles:string[];
 
-    constructor(username:string, password:string, roles:string[]) {
+    constructor(email:string, pwd:string, roles:string[]) {
 
-        this.username=username;
-        this.password=password;
+        this.email=email;
+        this.pwd=pwd;
         this.roles= roles;
     }
 };

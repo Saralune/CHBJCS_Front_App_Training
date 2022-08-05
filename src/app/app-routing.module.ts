@@ -21,7 +21,7 @@ const routes: Routes = [
     { path : 'customer' , component : CustomerComponent},
     { path:'form',component:FormComponent},
     { path:'register', component: RegisterComponent},
-    { path:'login', component: LoginComponent},
+    // { path:'login', component: LoginComponent},
     { path : '' , redirectTo : 'trainings', pathMatch : 'full' },
     { path: '404', component: NotFoundComponent},
     { path: '**', redirectTo: '/404'}

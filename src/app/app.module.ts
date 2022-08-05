@@ -28,7 +28,7 @@ import { LoginComponent } from './components/login/login.component';
     AddTrainingComponent,
     UpdateTrainingComponent,
     RegisterComponent,
-    LoginComponent,
+   
   ],
   imports: [
     BrowserModule,
